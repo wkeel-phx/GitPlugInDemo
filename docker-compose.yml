@@ -1,0 +1,38 @@
+version: '3'
+services:
+    as_headNode_3_parallel:
+        #linkedComponent: HostNameTest
+        #imageHash: 8089101ead9ce9b8c68d6859995c98108e1022c23beaa55754acb89d66fd3381
+        restart: on-failure
+        image: '10.10.9.84:5000/hello-world'
+        hostname: 'as_headNode_parallel'
+        #volumes:
+        #    - ./Analyses:C:\Users\ContainerAdministrator\AppData\Roaming\Phoenix Integration\AServer13.1\analyses
+        #command: "C:/Program Files/Phoenix Integration/Analysis Server 13.1/aserver.exe"
+    as_workNode_0_parallel:
+        #linkedComponent: HostNameTest
+        #imageHash: 4dc83cedcfefadfa47c17708b364ec307d849a5e7b807609ff7bf012000c53cb
+        restart: on-failure
+        image: '10.10.9.84:5000/as:3.0'
+        hostname: 'as_workNode_0_parallel'
+        volumes:
+            - ./Analyses:C:\Users\ContainerAdministrator\AppData\Roaming\Phoenix Integration\AServer13.1\analyses
+        command: "C:/Program Files/Phoenix Integration/Analysis Server 13.1/aserver.exe"
+    as_workNode_1_parallel:
+        #linkedComponent: HostNameTest
+        #imageHash: 05977f080afa
+        restart: on-failure
+        image: 'registry-1.docker.io/jrbe228/multi-client'
+        hostname: 'as_workNode_1_parallel'
+        #volumes:
+        #    - ./Analyses:C:\Users\ContainerAdministrator\AppData\Roaming\Phoenix Integration\AServer13.1\analyses
+        #command: "C:/Program Files/Phoenix Integration/Analysis Server 13.1/aserver.exe"
+    as_headNode_2_parallel:
+        #linkedComponent: HostNameTest
+        #imageHash: f37a6d538021
+        restart: on-failure
+        image: '127.0.0.1:2375/hello-world'
+        hostname: 'as_headNode_parallel'
+        #volumes:
+        #    - ./Analyses:C:\Users\ContainerAdministrator\AppData\Roaming\Phoenix Integration\AServer13.1\analyses
+        #command: "C:/Program Files/Phoenix Integration/Analysis Server 13.1/aserver.exe"
